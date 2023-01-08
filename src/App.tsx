@@ -1,9 +1,11 @@
-import Navigation from "./navigation/Navbar"
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Navigation from "./navigation/Navigation";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
-    <Navigation />
+    <>
+      <Navigation />
+    </>
   );
 }
 

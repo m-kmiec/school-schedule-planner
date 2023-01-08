@@ -1,14 +1,13 @@
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
 import { BrowserRouter as Router, Link, Routes, Route} from "react-router-dom";
 import Courses from "../courses/Courses";
 import Groups from "../groups/Groups";
+import Home from "../Home";
 
 function Navigation() {
   return (
     <Router>
-    <div>
-    <Navbar bg="dark" variant="dark">
-        <Container>
+    <Navbar bg="dark" variant="dark">    
           <Navbar.Brand>
           <img
               alt="logo"
@@ -16,7 +15,7 @@ function Navigation() {
               width="30"
               height="30"
               className="d-inline-block align-top"
-            />{' '}
+            />
             School Schedule Planner
           </Navbar.Brand>
           <Nav className="me-auto">
@@ -24,18 +23,12 @@ function Navigation() {
             <Nav.Link as={Link} to={"/courses"}>Courses</Nav.Link>
             <Nav.Link as={Link} to={"/groups"}>Groups</Nav.Link>
           </Nav>
-        </Container>
       </Navbar>
-    </div>
-    <div>
       <Routes>
-         <Route path="/"/>
-         <Route path="/courses" element={<Courses/>}>
-         </Route>
-         <Route path="/groups" element={<Groups/>}>
-         </Route>
+         <Route path="/" element={<Home />} />
+         <Route path="/courses" element={<Courses/>} />
+         <Route path="/groups" element={<Groups/>} />
       </Routes>
-    </div>
     </Router>
   );
 }
