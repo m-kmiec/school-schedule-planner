@@ -1,4 +1,4 @@
-export type studentGroup = {
+export type StudentGroup = {
     name: string,
     additionalCourses : Object[],
     id: number

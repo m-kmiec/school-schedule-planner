@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 import { Link } from "react-router-dom";
-import { studentGroup } from "./data/StudentGroups";
+import { StudentGroup } from "./data/StudentGroups";
 
-export default function Home() {
-  const [studentGroups, setStudentGroups] = useState<studentGroup[] | null>();
+function Home() {
+  const [studentGroups, setStudentGroups] = useState<StudentGroup[] | null>();
 
   useEffect(() => {
     fetch("http://localhost:3004/studentGroups")
@@ -40,3 +40,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home;

@@ -1,7 +1,7 @@
 import { Table } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 
-export default function Schedule() {
+function Schedule() {
   const { className } = useParams();  
   
   return (    
@@ -47,3 +47,5 @@ export default function Schedule() {
     </div>
   );
 }
+
+export default Schedule;
