@@ -1,9 +1,15 @@
-import { Table } from "react-bootstrap";
+import { useState } from "react";
+import { Button, Table } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import ScheduleForm from "./ScheduleForm";
 
 function Schedule() {
   const { className } = useParams();
+  const [clicked, setClicked] = useState(false);
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setClicked(clicked ? false : true);
+  };
 
   return (
     <div>
@@ -63,7 +69,11 @@ function Schedule() {
           </tr>
         </tbody>
       </Table>
-      <ScheduleForm/>
+      <div>
+        <Button onClick={handleClick}> Create Schedule </Button>
+        <Button variant="danger"> Delete Schedule </Button>{" "}
+      </div>
+      {clicked && <ScheduleForm />}
     </div>
   );
 }
