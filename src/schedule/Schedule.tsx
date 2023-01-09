@@ -1,10 +1,13 @@
-import React, { Component } from 'react'
-import { Table } from 'react-bootstrap'
+import { Table } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 
-export default class Schedule extends Component {
-  render() {
-    return (
-        <Table striped="columns">
+export default function Schedule() {
+  const { className } = useParams();  
+  
+  return (    
+    <div>
+      <h1> provided class name = { className }</h1>
+      <Table striped="columns">
         <thead>
           <tr>
             <th></th>
@@ -41,6 +44,6 @@ export default class Schedule extends Component {
           </tr>
         </tbody>
       </Table>
-    )
-  }
+    </div>
+  );
 }

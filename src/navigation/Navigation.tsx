@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Link, Routes, Route} from "react-router-dom";
 import Courses from "../courses/Courses";
 import Groups from "../groups/Groups";
 import Home from "../Home";
+import Schedule from "../schedule/Schedule";
 
 function Navigation() {
   return (
@@ -28,6 +29,9 @@ function Navigation() {
          <Route path="/" element={<Home />} />
          <Route path="/courses" element={<Courses/>} />
          <Route path="/groups" element={<Groups/>} />
+         <Route path="/schedule" element={<Schedule/>}>
+            <Route path=":className" element={<Schedule/>} />
+         </Route>
       </Routes>
     </Router>
   );

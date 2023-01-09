@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
+import { Link } from "react-router-dom";
 import { studentGroup } from "./data/StudentGroups";
 
 export default function Home() {
@@ -26,7 +27,13 @@ export default function Home() {
       <ListGroup>
         {studentGroups
           ? studentGroups.map((studentGroup) => {
-              return <ListGroup.Item>{studentGroup.name}</ListGroup.Item>;
+              return (
+                <Link to={`schedule/${studentGroup.name}`} key={studentGroup.id}>
+                  <ListGroup.Item>
+                    {studentGroup.name}
+                  </ListGroup.Item>
+                </Link>
+              );
             })
           : " "}
       </ListGroup>
