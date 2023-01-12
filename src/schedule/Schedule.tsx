@@ -1,79 +1,68 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import { ScheduleForDay } from "../data/ScheduleForDay";
 import ScheduleForm from "./ScheduleForm";
 
 function Schedule() {
   const { className } = useParams();
   const [clicked, setClicked] = useState(false);
+  const [scheduleForDay, setScheduleForDay] = useState<ScheduleForDay[]>([]);
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  useEffect(() => {
+    axios
+      .get("http://localhost:3004/scheduleForDay?className=" + className)
+      .then((res) => {
+        setScheduleForDay(res.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, [className]);
+
+  const handleClick = () => {
     setClicked(clicked ? false : true);
+  };
+
+  const renderRows = () => {
+    return scheduleForDay.map(function (val, i) {
+      return (
+        <tr key={i}>
+          <td>{val["day"]}</td>
+          <td>{val["firstTimestamp"]}</td>
+          <td>{val["secondTimestamp"]}</td>
+          <td>{val["thirdTimestamp"]}</td>
+          <td>{val["fourthTimestamp"]}</td>
+          <td>{val["fifthTimestamp"]}</td>
+          <td>{val["sixthTimestamp"]}</td>
+        </tr>
+      );
+    });
   };
 
   return (
     <div>
-      <h1> {className} schedule </h1>
-      <Table striped="columns">
+      <h1> {className}'s schedule </h1>
+      <Table id="myTable" striped="columns">
         <thead>
           <tr>
             <th></th>
-            <th>Monday</th>
-            <th>Tuesday</th>
-            <th>Wednesday</th>
-            <th>Thursday</th>
-            <th>Friday</th>
+            <th>8:00-8:45</th>
+            <th>8:55-9:40</th>
+            <th>9:50-10:35</th>
+            <th>10:55-11:40</th>
+            <th>11:50-12:35</th>
+            <th>12:45-13:30</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>8:00-8:45</td>
-            <td>Mathematics</td>
-            <td>Physics</td>
-            <td>English</td>
-          </tr>
-          <tr>
-            <td>8:55-9:40</td>
-            <td>Physical Education</td>
-            <td>Biology</td>
-            <td>Chemistry</td>
-          </tr>
-          <tr>
-            <td>9:50-10:35</td>
-            <td colSpan={2}>Mathematics</td>
-            <td>English</td>
-          </tr>
-          <tr>
-            <td>10:55-11:40</td>
-            <td>Mathematics</td>
-            <td></td>
-            <td>Chemistry</td>
-          </tr>
-          <tr>
-            <td>11:50-12:35</td>
-            <td>History</td>
-            <td></td>
-            <td>English</td>
-          </tr>
-          <tr>
-            <td>12:45-13:30</td>
-            <td>Physics</td>
-            <td></td>
-            <td>Biology</td>
-          </tr>
-          <tr>
-            <td>13:40-14:25</td>
-            <td>Mathematics</td>
-            <td></td>
-            <td>History</td>
-          </tr>
-        </tbody>
+        <tbody>{renderRows()}</tbody>
       </Table>
       <div>
         <Button onClick={handleClick}> Create Schedule </Button>
         <Button variant="danger"> Delete Schedule </Button>{" "}
       </div>
-      {clicked && <ScheduleForm />}
+      {clicked && <ScheduleForm className={className!} />}
     </div>
   );
 }
