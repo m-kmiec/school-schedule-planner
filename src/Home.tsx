@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { StudentGroup } from "./data/StudentGroups";
 
 function Home() {
-  const [studentGroups, setStudentGroups] = useState<StudentGroup[] | null>();
+  const [studentGroups, setStudentGroups] = useState<StudentGroup[]>([]);
 
   useEffect(() => {
     fetch("http://localhost:3004/studentGroups")
