@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import { Course } from "../data/Course";
 import "./AddCourse.style.css";
 import { useFormInputValidation } from "react-form-input-validation";
@@ -7,33 +7,44 @@ import * as Yup from 'yup';
 import { Teacher } from "../data/Teacher";
 import { Subject } from "../data/Subject";
 import { useForm } from "react-hook-form";
+import Service from "../service/Service";
 
 type Props = {
     onBackButtonClick: () => void;
     onSubmitClick: (data: Course) => void;
 }
 
-type CourseSubmitForm = {
-    subject: Subject;
-    teacher: Teacher;
-    type: string;
-    duration: number;
-    hoursReq: number;
-};
-
 const AddEmployee = (props: Props) => {
     const { onBackButtonClick, onSubmitClick } = props;
 
+    const [subjects, setSubjects] = useState([] as Subject[]);
+    const [teachers, setTeachers] = useState([] as Teacher[]);
+
+    useEffect(() => {
+        Service.getSubjects()
+        .then((response: any) => {
+        setSubjects(response.data);
+        })
+        .catch((e: Error) => {
+        console.log(e);
+        });
+        Service.getTeachers()
+        .then((resp: any) => {
+            setTeachers(resp.data);
+        })
+        .catch((e: Error) => {
+            console.log(e);
+        })
+    },[])
+
     const validationSchema = Yup.object().shape({
-        subject: Yup.object().required("Subject is required"),
-        teacher: Yup.object().required("Teacher is required"),
         type: Yup.string()
         .required("Duration is required!")
         .max(10, "Type must not exceed 10 characters")
         .matches(/^[a-zA-Z]+$/),
         duration: Yup.number()
         .required("Duration is required")
-        .max(10,"Duration must not exceed 10 characters"),
+        .max(10,"Duration must not exceed 10 hours"),
         hoursReq: Yup.number()
         .required("Hours required is required")
         .positive("Number must be positive")
@@ -43,16 +54,26 @@ const AddEmployee = (props: Props) => {
         register,
         handleSubmit,
         reset,
+        setValue,
         formState: { errors }
-    } = useForm<CourseSubmitForm>({
+    } = useForm<Course>({
         resolver: yupResolver(validationSchema)
     });
 
-    const onSubmit = (data: CourseSubmitForm) => {
+    const onSubmit = (data: Course) => {
+        Service.addCourse(data);
         onSubmitClick(data);
         onBackButtonClick();
     }
-    
+
+    const handleChangeOfSubject = (event: React.ChangeEvent<HTMLSelectElement>) =>{
+        setValue("subject", JSON.parse(event.target.value));
+    }
+
+    const handleChangeOfTeacher = (event: React.ChangeEvent<HTMLSelectElement>) =>{
+        setValue("teacher", JSON.parse(event.target.value));
+    }
+
     return (
         <div className="form-container">
             <div>
@@ -61,14 +82,23 @@ const AddEmployee = (props: Props) => {
             <form onSubmit={handleSubmit(onSubmit)} className = "addCourseForm">
                 <div className = "form-group">
                     <label>Subject: </label>
-                    <select ></select>
-                    <input type="text" {...register('subject')} className={`form-control ${errors.subject ? 'is-invalid' : ''}`} />
-                    <div className="invalid-feedback">{errors.subject?.message}</div>
+                    <select  onChange={handleChangeOfSubject} name='subject' >
+                        {subjects.map(subject => (
+                            <option key = {subject.name} value = {JSON.stringify(subject)} >
+                                {subject.name}
+                            </option>
+                        ))}
+                    </select>
                 </div>
                 <div className = "form-group">
                     <label>Teacher: </label>
-                    <input type="text" {...register('teacher')} className={`form-control ${errors.teacher ? 'is-invalid' : ''}`} />
-                    <div className="invalid-feedback">{errors.teacher?.message}</div>
+                    <select onChange={handleChangeOfTeacher} name='teacher' >
+                        {teachers.map(teacher => (
+                            <option key = {teacher.name} value = {JSON.stringify(teacher)} >
+                                {teacher.name}
+                            </option>
+                        ))}
+                    </select>
                 </div>
                 <div className = "form-group">
                     <label>Type: </label>

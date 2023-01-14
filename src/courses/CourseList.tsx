@@ -2,12 +2,15 @@ import { Course } from "../data/Course";
 import "./CourseList.style.css";
 
 type Props = {
-    list: Course[]
+    list: Course[],
+    // editCourse: (id:number) => void,
+    // deleteCourse: (id:number) => void
 }
 
 
 const CourseList = (props: Props) => {
 
+    // const { list, editCourse, deleteCourse } = props;
     const { list } = props;
     return (<div>This is courses list page
         <table>
@@ -29,8 +32,8 @@ const CourseList = (props: Props) => {
                         <td>{course.hoursReq}</td>
                         <td>
                             <div>
-                            <input type="button" value="Edit"/>
-                            <input type="button" value="Delete"/>
+                            <input type="button" value="Edit" /*onClick={editCourse}*//>
+                            <input type="button" value="Delete" /*onClick={deleteCourse}*//>
                             </div>
                         </td>
                     </tr>
