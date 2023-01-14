@@ -28,6 +28,7 @@ const CourseList = (props: Props) => {
     let id: string = "0";
     return (<div>This is courses list page
         <table id="tableID">
+            <tbody>
             <tr>
                 <th>Subject</th>
                 <th>Teacher</th>
@@ -53,7 +54,7 @@ const CourseList = (props: Props) => {
                     </tr>
                 )
             })}
-
+            </tbody>
         </table>
     </div>
     )

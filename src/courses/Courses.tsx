@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 import { useEffect, useState } from "react";
 import { Course, PageEnum, tmpList } from '../data/Course';
-import MaterialTable from 'material-table';
 import CourseList from './CourseList';
 import AddCourse from './AddCourse';
 import Service from '../service/Service';
-import { get } from 'react-hook-form';
+import EditCourse from './EditCourse';
 
 function Courses() {
   const [courses, setCourses] = useState([] as Course[]);
+
+  const[editCourseId, setEditCourseId] = useState<number>(0);
 
   const [shownPage, setShownPage] = useState(PageEnum.list)
 
@@ -20,12 +21,12 @@ function Courses() {
 
   useEffect(() => {
     if(idToChange === null) return;
+    console.log("useEffect after delete");
     getAllCourses();
     setIdToChange(null);
   },[idToChange]);
 
   const getAllCourses = () => {
-    console.log("test");
     Service.getCourses()
     .then((response: any) => {
       setCourses(response.data)
@@ -47,23 +48,32 @@ function Courses() {
     setCourses([...courses,data]);
   }
 
-  const editCourse = (id: number) => {
+  const getCourseIdToEdit = (id:number) => {
+    setEditCourseId(id);
+    setShownPage(PageEnum.edit);
+  }
 
+  const editCourse = (data: Course) => {
+    setIdToChange(editCourseId);
+    Service.editCourse(data,editCourseId);
+    getAllCourses();
   }
 
   const deleteCourse = (id: number) => {
-    Service.deleteCourse(id);
     setIdToChange(id);
+    Service.deleteCourse(id);
+    getAllCourses();
   }
 
   return (
     <div className="Courses">
       <h1>Courses</h1>
       {shownPage === PageEnum.list &&
-        <><CourseList list={courses} editCourse={editCourse} deleteCourse={deleteCourse}></CourseList>
+        <><CourseList list={courses} editCourse={getCourseIdToEdit} deleteCourse={deleteCourse}></CourseList>
           <input type="button" value="Add" onClick={onAddCourseClick} /></>
       }
       {shownPage === PageEnum.add && <AddCourse onBackButtonClick={showListPage} onSubmitClick={addCourse}/>}
+      {shownPage === PageEnum.edit && <EditCourse onBackButtonClick={showListPage} onSubmitClick={editCourse}></EditCourse>}
     </div>
   );
 }

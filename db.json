@@ -188,13 +188,13 @@
       "id": 3
     },
     {
-      "hoursReq": 8,
-      "duration": 10,
-      "type": "Useless",
+      "hoursReq": 5,
+      "duration": 8,
+      "type": "Science",
       "subject": {
-        "name": "Advanced History",
-        "abbre": "aHIS",
-        "isMandatory": false
+        "name": "Biology",
+        "abbre": "BIO",
+        "isMandatory": true
       },
       "teacher": {
         "name": "Aleena",
