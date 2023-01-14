@@ -9,10 +9,11 @@ import { Subject } from "../data/Subject";
 import { useForm } from "react-hook-form";
 import Service from "../service/Service";
 
+
 type Props = {
-    onBackButtonClick: () => void;
-    onSubmitClick: (data: Course) => void;
-}
+  onBackButtonClick: () => void;
+  onSubmitClick: (data: Course) => void;
+};
 
 const AddEmployee = (props: Props) => {
     const { onBackButtonClick, onSubmitClick } = props;
@@ -120,7 +121,10 @@ const AddEmployee = (props: Props) => {
                     <input type="submit" value="Add"/>
                 </div>
             </form>
+
         </div>
-    )
-}
+      </form>
+    </div>
+  );
+};
 export default AddEmployee;

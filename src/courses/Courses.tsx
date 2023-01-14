@@ -37,11 +37,11 @@ function Courses() {
 
   const onAddCourseClick = () => {
     setShownPage(PageEnum.add);
-  }
+  };
 
   const showListPage = () => {
     setShownPage(PageEnum.list);
-  }
+  };
 
   const addCourse = (data: Course) => {
     setCourses([...courses,data]);
@@ -64,9 +64,8 @@ function Courses() {
           <input type="button" value="Add" onClick={onAddCourseClick} /></>
       }
       {shownPage === PageEnum.add && <AddCourse onBackButtonClick={showListPage} onSubmitClick={addCourse}/>}
-
     </div>
-  )
+  );
 }
 
 export default Courses;
