@@ -141,38 +141,6 @@
   "courses": [
     {
       "subject": {
-        "name": "Mathematics",
-        "abbre": "MATH",
-        "isMandatory": true
-      },
-      "teacher": {
-        "name": "Licoln",
-        "surrname": "Dean",
-        "coursesTaught": []
-      },
-      "type": "maths",
-      "duration": "45 min",
-      "hoursReq": "5",
-      "id": 4
-    },
-    {
-      "subject": {
-        "name": "Biology",
-        "abbre": "BIO",
-        "isMandatory": true
-      },
-      "teacher": {
-        "name": "Tahlia",
-        "surrname": "Benson",
-        "coursesTaught": []
-      },
-      "type": "science",
-      "duration": "45 min",
-      "hoursReq": "4",
-      "id": 5
-    },
-    {
-      "subject": {
         "name": "Advanced Chemistry",
         "abbre": "aCHEM",
         "isMandatory": false
@@ -185,7 +153,7 @@
       "type": "Science",
       "duration": "45 min",
       "hoursReq": "4",
-      "id": 6
+      "id": 1
     },
     {
       "subject": {
@@ -201,7 +169,7 @@
       "type": "Memory",
       "duration": "45 min",
       "hoursReq": "3",
-      "id": 7
+      "id": 2
     },
     {
       "hoursReq": 6,
@@ -217,7 +185,7 @@
         "surrname": "Dean",
         "coursesTaught": []
       },
-      "id": 8
+      "id": 3
     },
     {
       "hoursReq": 8,
@@ -233,7 +201,7 @@
         "surrname": "Whitaker",
         "coursesTaught": []
       },
-      "id": 9
+      "id": 4
     }
   ],
   "subjects": [
