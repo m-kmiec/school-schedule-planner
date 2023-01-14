@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { StudentGroup } from "./data/StudentGroups";
 
 function Home() {
-  const [studentGroups, setStudentGroups] = useState<StudentGroup[] | null>();
+  const [studentGroups, setStudentGroups] = useState<StudentGroup[]>([]);
 
   useEffect(() => {
     axios

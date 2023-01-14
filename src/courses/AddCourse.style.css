@@ -1,3 +1,13 @@
 .form-container {
     text-align:  center;
 }
+
+.addCourseForm {
+    max-width: 350px;
+    margin: auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
