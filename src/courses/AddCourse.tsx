@@ -1,7 +1,6 @@
 import React, { FormEvent, useEffect, useState } from "react";
 import { Course } from "../data/Course";
 import "./AddCourse.style.css";
-import { useFormInputValidation } from "react-form-input-validation";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { Teacher } from "../data/Teacher";

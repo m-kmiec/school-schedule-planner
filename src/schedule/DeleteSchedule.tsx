@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import Service from "../service/Service";
 
 type DeleteScheduleProps = {
   className: string;
@@ -11,8 +12,7 @@ function DeleteSchedule(props: DeleteScheduleProps) {
   const [day, setDay] = useState("");
 
   const deleteScheduleForDay = () => {
-    axios
-      .delete("http://localhost:3004/scheduleForDay/" + day)
+    Service.deleteScheduleForDay(day)
       .then(() => {
         console.log(day);
       })

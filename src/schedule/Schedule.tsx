@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import Service from "../service/Service";
 import DeleteSchedule from "./DeleteSchedule";
 import ScheduleForm from "./ScheduleForm";
 
@@ -12,8 +13,7 @@ function Schedule() {
   const [scheduleForDay, setScheduleForDay] = useState<any[]>([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3004/scheduleForDay?className=" + className)
+    Service.getScheduleForGroup(className)
       .then((res) => {
         setScheduleForDay(res.data);
       })
@@ -65,10 +65,20 @@ function Schedule() {
       </Table>
       <div>
         <Button onClick={createClick}> Create Schedule </Button>
-        <Button onClick={deleteClick} variant="danger"> Delete Schedule </Button>
+        <Button onClick={deleteClick} variant="danger">
+          {" "}
+          Delete Schedule{" "}
+        </Button>
       </div>
       <div>{submitButtonClick && <ScheduleForm className={className!} />}</div>
-      <div>{deleteButtonClick && <DeleteSchedule className={className!} schedules={scheduleForDay}></DeleteSchedule>}</div>
+      <div>
+        {deleteButtonClick && (
+          <DeleteSchedule
+            className={className!}
+            schedules={scheduleForDay}
+          ></DeleteSchedule>
+        )}
+      </div>
     </div>
   );
 }

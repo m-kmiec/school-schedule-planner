@@ -2,22 +2,6 @@
   "courses": [
     {
       "subject": {
-        "name": "",
-        "abbre": "",
-        "isMandatory": true
-      },
-      "teacher": {
-        "name": "",
-        "surrname": "",
-        "coursesTaught": []
-      },
-      "type": "",
-      "duration": "",
-      "hoursReq": "",
-      "id": 1
-    },
-    {
-      "subject": {
         "name": "Mathematics",
         "abbre": "MATH",
         "isMandatory": true
@@ -313,17 +297,6 @@
       "id": 7
     },
     {
-      "className": "2A",
-      "day": "Tuesday",
-      "firstTimestamp": "Physics",
-      "secondTimestamp": "Polish",
-      "thirdTimestamp": "",
-      "fourthTimestamp": "",
-      "fifthTimestamp": "",
-      "sixthTimestamp": "",
-      "id": 8
-    },
-    {
       "className": "3F",
       "day": "Tuesday",
       "firstTimestamp": "Advanced Chemistry",
@@ -377,7 +350,6 @@
       "fifthTimestamp": "",
       "sixthTimestamp": "",
       "id": 15
-
     }
   ]
 }

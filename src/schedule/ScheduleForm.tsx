@@ -1,8 +1,8 @@
-import axios from "axios";
 import { FormEvent, useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Course } from "../data/Course";
 import { ScheduleForDay } from "../data/ScheduleForDay";
+import Service from "../service/Service";
 import "./ScheduleForm.style.css";
 
 export type Props = {
@@ -24,18 +24,17 @@ function ScheduleForm(props: Props) {
     fetchData();
   });
 
-  const fetchData = () => {
-    axios
-      .get("http://localhost:3004/studentGroups?name=" + props.className)
+  function fetchData(): void {
+    Service.getAdditionalCourses(props.className)
       .then((res) => {
         setAdditionalCourses(res.data[0].additionalCourses);
+        console.log(additionalCourses);
       })
       .catch(function (error) {
         console.log(error);
       });
 
-    axios
-      .get("http://localhost:3004/courses")
+    Service.getCourses()
       .then((res) => {
         setCourses([
           ...res.data.filter(
@@ -48,7 +47,7 @@ function ScheduleForm(props: Props) {
       .catch(function (error) {
         console.log(error);
       });
-  };
+  }
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     const scheduleForDay: ScheduleForDay = {
@@ -62,8 +61,7 @@ function ScheduleForm(props: Props) {
       sixthTimestamp: sixth,
     };
 
-    axios
-      .post("http://localhost:3004/scheduleForDay", scheduleForDay)
+    Service.postScheduleForDay(scheduleForDay)
       .then((res) => {
         console.log(res.data);
       })
