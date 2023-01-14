@@ -2,27 +2,33 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import { ScheduleForDay } from "../data/ScheduleForDay";
+import DeleteSchedule from "./DeleteSchedule";
 import ScheduleForm from "./ScheduleForm";
 
 function Schedule() {
   const { className } = useParams();
-  const [clicked, setClicked] = useState(false);
-  const [scheduleForDay, setScheduleForDay] = useState<ScheduleForDay[]>([]);
+  const [submitButtonClick, setSubmitButtonClick] = useState(false);
+  const [deleteButtonClick, setDeleteButtonClick] = useState(false);
+  const [scheduleForDay, setScheduleForDay] = useState<any[]>([]);
 
   useEffect(() => {
     axios
       .get("http://localhost:3004/scheduleForDay?className=" + className)
       .then((res) => {
         setScheduleForDay(res.data);
+        console.log(res.data);
       })
       .catch(function (error) {
         console.log(error);
       });
   }, [className]);
 
-  const handleClick = () => {
-    setClicked(clicked ? false : true);
+  const createClick = () => {
+    setSubmitButtonClick(submitButtonClick ? false : true);
+  };
+
+  const deleteClick = () => {
+    setDeleteButtonClick(deleteButtonClick ? false : true);
   };
 
   const renderRows = () => {
@@ -36,6 +42,7 @@ function Schedule() {
           <td>{val["fourthTimestamp"]}</td>
           <td>{val["fifthTimestamp"]}</td>
           <td>{val["sixthTimestamp"]}</td>
+          <td>{val["id"]}</td>
         </tr>
       );
     });
@@ -59,10 +66,11 @@ function Schedule() {
         <tbody>{renderRows()}</tbody>
       </Table>
       <div>
-        <Button onClick={handleClick}> Create Schedule </Button>
-        <Button variant="danger"> Delete Schedule </Button>{" "}
+        <Button onClick={createClick}> Create Schedule </Button>
+        <Button onClick={deleteClick} variant="danger"> Delete Schedule </Button>
       </div>
-      {clicked && <ScheduleForm className={className!} />}
+      <div>{submitButtonClick && <ScheduleForm className={className!} />}</div>
+      <div>{deleteButtonClick && <DeleteSchedule className={className!} schedules={scheduleForDay}></DeleteSchedule>}</div>
     </div>
   );
 }

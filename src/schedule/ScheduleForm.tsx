@@ -5,7 +5,7 @@ import { Course } from "../data/Course";
 import { ScheduleForDay } from "../data/ScheduleForDay";
 import "./ScheduleForm.style.css";
 
-type Props = {
+export type Props = {
   className: string;
 };
 
@@ -39,7 +39,7 @@ function ScheduleForm(props: Props) {
       thirdTimestamp: third,
       fourthTimestamp: fourth,
       fifthTimestamp: fifth,
-      sixthTimestamp: sixth
+      sixthTimestamp: sixth,
     };
 
     axios
@@ -80,7 +80,9 @@ function ScheduleForm(props: Props) {
 
   return (
     <div>
-      <h1> Create schedule for {props.className}: </h1>
+      <div className="kebab-case">
+        <h1> Create schedule for {props.className}: </h1>
+      </div>
       <Form className="mt-3 mb-3" onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Label> Day </Form.Label>

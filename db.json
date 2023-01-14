@@ -269,26 +269,26 @@
   ],
   "scheduleForDay": [
     {
-      "id": 1,
+      "className": "3F",
+      "day": "Monday",
+      "firstTimestamp": "",
+      "secondTimestamp": "",
+      "thirdTimestamp": "",
+      "fourthTimestamp": "",
+      "fifthTimestamp": "",
+      "sixthTimestamp": "",
+      "id": 4
+    },
+    {
       "className": "2A",
       "day": "Monday",
       "firstTimestamp": "Mathematics",
       "secondTimestamp": "Mathematics",
-      "thirdTimestamp": "Physics",
-      "fourthTimestamp": "English",
-      "fifthTimestamp": "",
-      "sixthTimestamp": ""
-    },
-    {
-      "className": "2A",
-      "day": "Tuesday",
-      "firstTimestamp": "Mathematics",
-      "secondTimestamp": "Mathematics",
-      "thirdTimestamp": "Mathematics",
+      "thirdTimestamp": "",
       "fourthTimestamp": "",
       "fifthTimestamp": "",
       "sixthTimestamp": "",
-      "id": 2
+      "id": 5
     }
   ]
 }
