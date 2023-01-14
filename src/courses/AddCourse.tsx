@@ -123,8 +123,6 @@ const AddEmployee = (props: Props) => {
             </form>
 
         </div>
-      </form>
-    </div>
   );
 };
 export default AddEmployee;
