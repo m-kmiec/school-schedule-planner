@@ -1,16 +1,33 @@
+import { Row } from "react-bootstrap";
 import { Course } from "../data/Course";
 import "./CourseList.style.css";
 
 type Props = {
-    list: Course[]
+    list: Course[],
+    editCourse: (id:number) => void,
+    deleteCourse: (id:number) => void
 }
 
 
 const CourseList = (props: Props) => {
 
-    const { list } = props;
+    const { list, editCourse, deleteCourse } = props;
+
+    const handleEditClick = (e: React.MouseEvent<HTMLInputElement>, id: number) => {
+        e.preventDefault();
+        // console.log("Edit button works, row " + id);
+        editCourse(id);
+    }
+    
+    const handleDeleteClick = (e: React.MouseEvent<HTMLInputElement>, id: number) => {
+        e.preventDefault();
+        // console.log("Delete button works, row " + id);
+        deleteCourse(id);
+    }
+    
+    let id: string = "0";
     return (<div>This is courses list page
-        <table>
+        <table id="tableID">
             <tr>
                 <th>Subject</th>
                 <th>Teacher</th>
@@ -19,9 +36,9 @@ const CourseList = (props: Props) => {
                 <th>Hours required</th>
                 <th>Action</th>
             </tr>
-            {list.map(course => {
+            {list.map((course,id) => {
                 return (
-                    <tr>
+                    <tr key={id}>
                         <td>{course.subject.name}</td>
                         <td>{course.teacher.surrname}</td>
                         <td>{course.type}</td>
@@ -29,8 +46,8 @@ const CourseList = (props: Props) => {
                         <td>{course.hoursReq}</td>
                         <td>
                             <div>
-                            <input type="button" value="Edit"/>
-                            <input type="button" value="Delete"/>
+                            <input type="button" value="Edit"  onClick={(e) => handleEditClick(e,id+1) }/>
+                            <input type="button" value="Delete" onClick={(e) => handleDeleteClick(e,id+1)}/>
                             </div>
                         </td>
                     </tr>

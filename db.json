@@ -137,5 +137,160 @@
       ],
       "id": 4
     }
+  ],
+  "courses": [
+    {
+      "subject": {
+        "name": "Advanced Chemistry",
+        "abbre": "aCHEM",
+        "isMandatory": false
+      },
+      "teacher": {
+        "name": "Licoln",
+        "surrname": "Dean",
+        "coursesTaught": []
+      },
+      "type": "Science",
+      "duration": "45 min",
+      "hoursReq": "4",
+      "id": 1
+    },
+    {
+      "subject": {
+        "name": "Advanced History",
+        "abbre": "aHIS",
+        "isMandatory": false
+      },
+      "teacher": {
+        "name": "Tahlia",
+        "surrname": "Benson",
+        "coursesTaught": []
+      },
+      "type": "Memory",
+      "duration": "45 min",
+      "hoursReq": "3",
+      "id": 2
+    },
+    {
+      "hoursReq": 6,
+      "duration": 4,
+      "type": "Science",
+      "subject": {
+        "name": "Advanced Physics",
+        "abbre": "aPHYS",
+        "isMandatory": false
+      },
+      "teacher": {
+        "name": "Licoln",
+        "surrname": "Dean",
+        "coursesTaught": []
+      },
+      "id": 3
+    },
+    {
+      "hoursReq": 8,
+      "duration": 10,
+      "type": "Useless",
+      "subject": {
+        "name": "Advanced History",
+        "abbre": "aHIS",
+        "isMandatory": false
+      },
+      "teacher": {
+        "name": "Aleena",
+        "surrname": "Whitaker",
+        "coursesTaught": []
+      },
+      "id": 4
+    }
+  ],
+  "subjects": [
+    {
+      "name": "Mathematics",
+      "abbre": "MATH",
+      "isMandatory": true
+    },
+    {
+      "name": "Physics",
+      "abbre": "PHYS",
+      "isMandatory": true
+    },
+    {
+      "name": "Biology",
+      "abbre": "BIO",
+      "isMandatory": true
+    },
+    {
+      "name": "Chemistry",
+      "abbre": "CHEM",
+      "isMandatory": true
+    },
+    {
+      "name": "Polish",
+      "abbre": "POL",
+      "isMandatory": true
+    },
+    {
+      "name": "English",
+      "abbre": "ENG",
+      "isMandatory": true
+    },
+    {
+      "name": "History",
+      "abbre": "HIS",
+      "isMandatory": true
+    },
+    {
+      "name": "Physical Education",
+      "abbre": "PE",
+      "isMandatory": true
+    },
+    {
+      "name": "Advanced Mathematics",
+      "abbre": "aMATH",
+      "isMandatory": false
+    },
+    {
+      "name": "Advanced Physics",
+      "abbre": "aPHYS",
+      "isMandatory": false
+    },
+    {
+      "name": "Advanced Chemistry",
+      "abbre": "aCHEM",
+      "isMandatory": false
+    },
+    {
+      "name": "Advanced Biology",
+      "abbre": "aBIO",
+      "isMandatory": false
+    },
+    {
+      "name": "Advanced Polish",
+      "abbre": "aPOL",
+      "isMandatory": false
+    },
+    {
+      "name": "Advanced History",
+      "abbre": "aHIS",
+      "isMandatory": false
+    }
+  ],
+  "teachers": [
+    {
+      "name": "Tahlia",
+      "surrname": "Benson",
+      "coursesTaught": []
+    },
+    {
+      "name": "Licoln",
+      "surrname": "Dean",
+      "coursesTaught": []
+    },
+    {
+      "name": "Aleena",
+      "surrname": "Whitaker",
+      "coursesTaught": []
+    }
   ]
 }
