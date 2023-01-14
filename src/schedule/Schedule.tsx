@@ -16,7 +16,6 @@ function Schedule() {
       .get("http://localhost:3004/scheduleForDay?className=" + className)
       .then((res) => {
         setScheduleForDay(res.data);
-        console.log(res.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -42,7 +41,6 @@ function Schedule() {
           <td>{val["fourthTimestamp"]}</td>
           <td>{val["fifthTimestamp"]}</td>
           <td>{val["sixthTimestamp"]}</td>
-          <td>{val["id"]}</td>
         </tr>
       );
     });

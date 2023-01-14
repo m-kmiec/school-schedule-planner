@@ -17,18 +17,38 @@ function ScheduleForm(props: Props) {
   const [fifth, setFifth] = useState("");
   const [sixth, setSixth] = useState("");
   const [selectedDay, setDay] = useState("");
-  const [courses, setCourses] = useState<Course[]>([]);
+  const [courses, setCourses] = useState<any[]>([]);
+  const [additionalCourses, setAdditionalCourses] = useState<any[]>([]);
 
   useEffect(() => {
+    fetchData();
+  });
+
+  const fetchData = () => {
     axios
-      .get("http://localhost:3004/courses")
+      .get("http://localhost:3004/studentGroups?name=" + props.className)
       .then((res) => {
-        setCourses(res.data);
+        setAdditionalCourses(res.data[0].additionalCourses);
       })
       .catch(function (error) {
         console.log(error);
       });
-  }, []);
+
+    axios
+      .get("http://localhost:3004/courses")
+      .then((res) => {
+        setCourses([
+          ...res.data.filter(
+            (c: { subject: { isMandatory: boolean } }) =>
+              c.subject.isMandatory === true
+          ),
+          ...additionalCourses,
+        ]);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     const scheduleForDay: ScheduleForDay = {
