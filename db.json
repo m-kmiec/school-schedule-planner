@@ -1,21 +1,150 @@
 {
-  "posts": [
+  "courses": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "subject": {
+        "name": "",
+        "abbre": "",
+        "isMandatory": true
+      },
+      "teacher": {
+        "name": "",
+        "surrname": "",
+        "coursesTaught": []
+      },
+      "type": "",
+      "duration": "",
+      "hoursReq": "",
+      "id": 1
+    },
+    {
+      "subject": {
+        "name": "Mathematics",
+        "abbre": "MATH",
+        "isMandatory": true
+      },
+      "teacher": {
+        "name": "Licoln",
+        "surrname": "Dean",
+        "coursesTaught": []
+      },
+      "type": "science",
+      "duration": "45 min",
+      "hoursReq": "5",
+      "id": 4
+    },
+    {
+      "subject": {
+        "name": "Biology",
+        "abbre": "BIO",
+        "isMandatory": true
+      },
+      "teacher": {
+        "name": "Tahlia",
+        "surrname": "Benson",
+        "coursesTaught": []
+      },
+      "type": "science",
+      "duration": "45 min",
+      "hoursReq": "4",
+      "id": 5
+    },
+    {
+      "subject": {
+        "name": "Advanced Chemistry",
+        "abbre": "aCHEM",
+        "isMandatory": false
+      },
+      "teacher": {
+        "name": "Licoln",
+        "surrname": "Dean",
+        "coursesTaught": []
+      },
+      "type": "science",
+      "duration": "45 min",
+      "hoursReq": "4",
+      "id": 6
+    },
+    {
+      "subject": {
+        "name": "Advanced History",
+        "abbre": "aHIS",
+        "isMandatory": false
+      },
+      "teacher": {
+        "name": "Tahlia",
+        "surrname": "Benson",
+        "coursesTaught": []
+      },
+      "type": "humanities",
+      "duration": "45 min",
+      "hoursReq": "3",
+      "id": 7
+    },
+    {
+      "subject": {
+        "name": "Physics",
+        "abbre": "PHYS",
+        "isMandatory": true
+      },
+      "teacher": {
+        "name": "Licoln",
+        "surrname": "Dean",
+        "coursesTaught": []
+      },
+      "type": "science",
+      "duration": "45 min",
+      "hoursReq": "4",
+      "id": 8
+    },
+    {
+      "subject": {
+        "name": "Advanced Physics",
+        "abbre": "aPHYS",
+        "isMandatory": false
+      },
+      "teacher": {
+        "name": "Aleena",
+        "surrname": "Whitaker",
+        "coursesTaught": []
+      },
+      "type": "science",
+      "duration": "45 min",
+      "hoursReq": "4",
+      "id": 9
+    },
+    {
+      "subject": {
+        "name": "Advanced Polish",
+        "abbre": "aPOL",
+        "isMandatory": false
+      },
+      "teacher": {
+        "name": "Floyd",
+        "surrname": "Yoder",
+        "coursesTaught": []
+      },
+      "type": "humanities",
+      "duration": "45 min",
+      "hoursReq": "2",
+      "id": 10
+    },
+    {
+      "subject": {
+        "name": "Polish",
+        "abbre": "POL",
+        "isMandatory": true
+      },
+      "teacher": {
+        "name": "Aleena",
+        "surrname": "Whitaker",
+        "coursesTaught": []
+      },
+      "type": "humanities",
+      "duration": "45 min",
+      "hoursReq": "3",
+      "id": 11
     }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
   "studentGroups": [
     {
       "name": "2A",
@@ -138,159 +267,117 @@
       "id": 4
     }
   ],
-  "courses": [
+  "scheduleForDay": [
     {
-      "subject": {
-        "name": "Advanced Chemistry",
-        "abbre": "aCHEM",
-        "isMandatory": false
-      },
-      "teacher": {
-        "name": "Licoln",
-        "surrname": "Dean",
-        "coursesTaught": []
-      },
-      "type": "Science",
-      "duration": "45 min",
-      "hoursReq": "4",
-      "id": 1
-    },
-    {
-      "subject": {
-        "name": "Advanced History",
-        "abbre": "aHIS",
-        "isMandatory": false
-      },
-      "teacher": {
-        "name": "Tahlia",
-        "surrname": "Benson",
-        "coursesTaught": []
-      },
-      "type": "Memory",
-      "duration": "45 min",
-      "hoursReq": "3",
-      "id": 2
-    },
-    {
-      "hoursReq": 6,
-      "duration": 4,
-      "type": "Science",
-      "subject": {
-        "name": "Advanced Physics",
-        "abbre": "aPHYS",
-        "isMandatory": false
-      },
-      "teacher": {
-        "name": "Licoln",
-        "surrname": "Dean",
-        "coursesTaught": []
-      },
-      "id": 3
-    },
-    {
-      "hoursReq": 8,
-      "duration": 10,
-      "type": "Useless",
-      "subject": {
-        "name": "Advanced History",
-        "abbre": "aHIS",
-        "isMandatory": false
-      },
-      "teacher": {
-        "name": "Aleena",
-        "surrname": "Whitaker",
-        "coursesTaught": []
-      },
+      "className": "3F",
+      "day": "Monday",
+      "firstTimestamp": "",
+      "secondTimestamp": "",
+      "thirdTimestamp": "",
+      "fourthTimestamp": "",
+      "fifthTimestamp": "",
+      "sixthTimestamp": "",
       "id": 4
-    }
-  ],
-  "subjects": [
-    {
-      "name": "Mathematics",
-      "abbre": "MATH",
-      "isMandatory": true
     },
     {
-      "name": "Physics",
-      "abbre": "PHYS",
-      "isMandatory": true
+      "className": "2A",
+      "day": "Monday",
+      "firstTimestamp": "Mathematics",
+      "secondTimestamp": "Mathematics",
+      "thirdTimestamp": "",
+      "fourthTimestamp": "",
+      "fifthTimestamp": "",
+      "sixthTimestamp": "",
+      "id": 5
     },
     {
-      "name": "Biology",
-      "abbre": "BIO",
-      "isMandatory": true
+      "className": "2A",
+      "day": "Tuesday",
+      "firstTimestamp": "Mathematics",
+      "secondTimestamp": "Mathematics",
+      "thirdTimestamp": "",
+      "fourthTimestamp": "",
+      "fifthTimestamp": "",
+      "sixthTimestamp": "",
+      "id": 6
     },
     {
-      "name": "Chemistry",
-      "abbre": "CHEM",
-      "isMandatory": true
+      "className": "2A",
+      "day": "Wednesday",
+      "firstTimestamp": "Mathematics",
+      "secondTimestamp": "Biology",
+      "thirdTimestamp": "",
+      "fourthTimestamp": "",
+      "fifthTimestamp": "",
+      "sixthTimestamp": "",
+      "id": 7
     },
     {
-      "name": "Polish",
-      "abbre": "POL",
-      "isMandatory": true
+      "className": "2A",
+      "day": "Tuesday",
+      "firstTimestamp": "Physics",
+      "secondTimestamp": "Polish",
+      "thirdTimestamp": "",
+      "fourthTimestamp": "",
+      "fifthTimestamp": "",
+      "sixthTimestamp": "",
+      "id": 8
     },
     {
-      "name": "English",
-      "abbre": "ENG",
-      "isMandatory": true
+      "className": "3F",
+      "day": "Tuesday",
+      "firstTimestamp": "Advanced Chemistry",
+      "secondTimestamp": "",
+      "thirdTimestamp": "",
+      "fourthTimestamp": "",
+      "fifthTimestamp": "",
+      "sixthTimestamp": "",
+      "id": 10
     },
     {
-      "name": "History",
-      "abbre": "HIS",
-      "isMandatory": true
+      "className": "3F",
+      "day": "Wednesday",
+      "firstTimestamp": "Advanced Polish",
+      "secondTimestamp": "Advanced Physics",
+      "thirdTimestamp": "",
+      "fourthTimestamp": "",
+      "fifthTimestamp": "",
+      "sixthTimestamp": "",
+      "id": 11
     },
     {
-      "name": "Physical Education",
-      "abbre": "PE",
-      "isMandatory": true
+      "className": "1C",
+      "day": "Monday",
+      "firstTimestamp": "Mathematics",
+      "secondTimestamp": "Biology",
+      "thirdTimestamp": "",
+      "fourthTimestamp": "",
+      "fifthTimestamp": "",
+      "sixthTimestamp": "",
+      "id": 12
     },
     {
-      "name": "Advanced Mathematics",
-      "abbre": "aMATH",
-      "isMandatory": false
+      "className": "1C",
+      "day": "Wednesday",
+      "firstTimestamp": "Advanced Polish",
+      "secondTimestamp": "",
+      "thirdTimestamp": "",
+      "fourthTimestamp": "",
+      "fifthTimestamp": "",
+      "sixthTimestamp": "",
+      "id": 14
     },
     {
-      "name": "Advanced Physics",
-      "abbre": "aPHYS",
-      "isMandatory": false
-    },
-    {
-      "name": "Advanced Chemistry",
-      "abbre": "aCHEM",
-      "isMandatory": false
-    },
-    {
-      "name": "Advanced Biology",
-      "abbre": "aBIO",
-      "isMandatory": false
-    },
-    {
-      "name": "Advanced Polish",
-      "abbre": "aPOL",
-      "isMandatory": false
-    },
-    {
-      "name": "Advanced History",
-      "abbre": "aHIS",
-      "isMandatory": false
-    }
-  ],
-  "teachers": [
-    {
-      "name": "Tahlia",
-      "surrname": "Benson",
-      "coursesTaught": []
-    },
-    {
-      "name": "Licoln",
-      "surrname": "Dean",
-      "coursesTaught": []
-    },
-    {
-      "name": "Aleena",
-      "surrname": "Whitaker",
-      "coursesTaught": []
+      "className": "1C",
+      "day": "Tuesday",
+      "firstTimestamp": "Advanced Chemistry",
+      "secondTimestamp": "Mathematics",
+      "thirdTimestamp": "",
+      "fourthTimestamp": "",
+      "fifthTimestamp": "",
+      "sixthTimestamp": "",
+      "id": 15
+
     }
   ]
 }

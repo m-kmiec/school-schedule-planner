@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 import { Link } from "react-router-dom";
@@ -7,15 +8,13 @@ function Home() {
   const [studentGroups, setStudentGroups] = useState<StudentGroup[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3004/studentGroups")
+    axios
+      .get("http://localhost:3004/studentGroups")
       .then((res) => {
-        return res.json();
+        setStudentGroups(res.data);
       })
-      .then((resp) => {
-        setStudentGroups(resp);
-      })
-      .catch((err) => {
-        console.log(err.message);
+      .catch(function (error) {
+        console.log(error);
       });
   }, []);
 
@@ -28,10 +27,11 @@ function Home() {
         {studentGroups
           ? studentGroups.map((studentGroup) => {
               return (
-                <Link to={`schedule/${studentGroup.name}`} key={studentGroup.id}>
-                  <ListGroup.Item>
-                    {studentGroup.name}
-                  </ListGroup.Item>
+                <Link
+                  to={`schedule/${studentGroup.name}`}
+                  key={studentGroup.id}
+                >
+                  <ListGroup.Item>{studentGroup.name}</ListGroup.Item>
                 </Link>
               );
             })
