@@ -15,7 +15,7 @@ type Props = {
   onSubmitClick: (data: Course) => void;
 };
 
-const AddEmployee = (props: Props) => {
+const AddCourse = (props: Props) => {
     const { onBackButtonClick, onSubmitClick } = props;
 
     const [subjects, setSubjects] = useState([] as Subject[]);
@@ -123,8 +123,6 @@ const AddEmployee = (props: Props) => {
             </form>
 
         </div>
-      </form>
-    </div>
   );
 };
-export default AddEmployee;
+export default AddCourse;
