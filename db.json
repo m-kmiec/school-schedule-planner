@@ -366,23 +366,12 @@
       "className": "2A",
       "day": "Thursday",
       "firstTimestamp": "Mathematics",
-      "secondTimestamp": "Polish",
-      "thirdTimestamp": "Advanced History",
-      "fourthTimestamp": "Advanced History",
-      "fifthTimestamp": "",
+      "secondTimestamp": "Physics",
+      "thirdTimestamp": "Physics",
+      "fourthTimestamp": "Polish",
+      "fifthTimestamp": "Advanced History",
       "sixthTimestamp": "",
       "id": 19
-    },
-    {
-      "className": "2A",
-      "day": "Friday",
-      "firstTimestamp": "Mathematics",
-      "secondTimestamp": "Mathematics",
-      "thirdTimestamp": "",
-      "fourthTimestamp": "Advanced History",
-      "fifthTimestamp": "Polish",
-      "sixthTimestamp": "",
-      "id": 20
     }
   ],
   "days": [
