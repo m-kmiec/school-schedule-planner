@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import Service from "../service/Service";
+import PropTypes from 'prop-types';
 
 type DeleteScheduleProps = {
   className: string;
@@ -41,6 +42,11 @@ function DeleteSchedule(props: DeleteScheduleProps) {
       </Form>
     </div>
   );
+}
+
+DeleteSchedule.propTypes = {
+  className : PropTypes.string,
+  schedules : PropTypes.arrayOf(PropTypes.object)
 }
 
 export default DeleteSchedule;
