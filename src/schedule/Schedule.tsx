@@ -5,12 +5,13 @@ import Service from "../service/Service";
 import DeleteSchedule from "./DeleteSchedule";
 import ScheduleForm from "./ScheduleForm";
 import "./Schedule.style.css";
+import { ScheduleForDay } from "../data/ScheduleForDay";
 
 function Schedule() {
   const { className } = useParams();
   const [submitButtonClick, setSubmitButtonClick] = useState(false);
   const [deleteButtonClick, setDeleteButtonClick] = useState(false);
-  const [scheduleForDay, setScheduleForDay] = useState<any[]>([]);
+  const [scheduleForDay, setScheduleForDay] = useState<ScheduleForDay[]>([]);
 
   useEffect(() => {
     Service.getScheduleForGroup(className)

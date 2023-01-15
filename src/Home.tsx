@@ -33,7 +33,9 @@ function Home() {
                     to={`schedule/${studentGroup.name}`}
                     key={studentGroup.id}
                   >
-                    <ListGroup.Item>{studentGroup.name}</ListGroup.Item>
+                    <ListGroup.Item action variant="light">
+                      {studentGroup.name}
+                    </ListGroup.Item>
                   </Link>
                 );
               })

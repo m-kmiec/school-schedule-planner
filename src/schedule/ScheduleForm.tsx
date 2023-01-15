@@ -5,12 +5,12 @@ import { ScheduleForDay } from "../data/ScheduleForDay";
 import Service from "../service/Service";
 import "./ScheduleForm.style.css";
 
-export type Props = {
-  className: string;
-};
-
 export type Day = {
   label: string;
+};
+
+export type Props = {
+  className: string;
 };
 
 function ScheduleForm(props: Props) {
@@ -128,7 +128,6 @@ function ScheduleForm(props: Props) {
             ))}
           </Form.Select>
         </Form.Group>
-
         {renderFormGroup("8:00-8:45", first, setFirst)}
         {renderFormGroup("8:55-9:40", second, setSecond)}
         {renderFormGroup("9:50-10:35", third, setThird)}

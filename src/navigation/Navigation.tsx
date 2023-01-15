@@ -4,6 +4,7 @@ import Courses from "../courses/Courses";
 import Groups from "../groups/Groups";
 import Home from "../Home";
 import Schedule from "../schedule/Schedule";
+import logo from "./logo192.png";
 
 function Navigation() {
   return (
@@ -12,7 +13,7 @@ function Navigation() {
           <Navbar.Brand>
           <img
               alt="logo"
-              src="logo192.png"
+              src={logo}
               width="30"
               height="30"
               className="d-inline-block align-top"
