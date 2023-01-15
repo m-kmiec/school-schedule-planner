@@ -17,37 +17,27 @@ function ScheduleForm(props: Props) {
   const [fifth, setFifth] = useState("");
   const [sixth, setSixth] = useState("");
   const [selectedDay, setDay] = useState("");
-  const [courses, setCourses] = useState<any[]>([]);
-  const [additionalCourses, setAdditionalCourses] = useState<any[]>([]);
+  const [courses, setCourses] = useState<Course[]>([]);
 
   useEffect(() => {
-    fetchData();
+    getAllCourses();
   });
 
-  function fetchData(): void {
-    Service.getAdditionalCourses(props.className)
-      .then((res) => {
-        setAdditionalCourses(res.data[0].additionalCourses);
-        console.log(additionalCourses);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+  const getAllCourses = async () => {
+    const [{ data: fetchedCourses }, { data: fetchedAdditionalCourses }] =
+      await Promise.all([
+        Service.getCourses(),
+        Service.getAdditionalCourses(props.className),
+      ]);
 
-    Service.getCourses()
-      .then((res) => {
-        setCourses([
-          ...res.data.filter(
-            (c: { subject: { isMandatory: boolean } }) =>
-              c.subject.isMandatory === true
-          ),
-          ...additionalCourses,
-        ]);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
+    setCourses([
+      ...fetchedCourses.filter(
+        (c: { subject: { isMandatory: boolean } }) =>
+          c.subject.isMandatory === true
+      ),
+      ...fetchedAdditionalCourses[0].additionalCourses,
+    ]);
+  };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     const scheduleForDay: ScheduleForDay = {

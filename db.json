@@ -350,6 +350,39 @@
       "fifthTimestamp": "",
       "sixthTimestamp": "",
       "id": 15
+    },
+    {
+      "className": "2A",
+      "day": "Thursday",
+      "firstTimestamp": "",
+      "secondTimestamp": "",
+      "thirdTimestamp": "",
+      "fourthTimestamp": "",
+      "fifthTimestamp": "",
+      "sixthTimestamp": "",
+      "id": 16
+    },
+    {
+      "className": "2A",
+      "day": "Friday",
+      "firstTimestamp": "Biology",
+      "secondTimestamp": "",
+      "thirdTimestamp": "",
+      "fourthTimestamp": "",
+      "fifthTimestamp": "",
+      "sixthTimestamp": "",
+      "id": 17
+    },
+    {
+      "className": "3F",
+      "day": "Thursday",
+      "firstTimestamp": "Advanced Chemistry",
+      "secondTimestamp": "Advanced History",
+      "thirdTimestamp": "Mathematics",
+      "fourthTimestamp": "",
+      "fifthTimestamp": "",
+      "sixthTimestamp": "",
+      "id": 18
     }
   ]
 }
