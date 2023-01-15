@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import { useParams } from "react-router-dom";
@@ -34,7 +33,7 @@ function Schedule() {
     return scheduleForDay.map(function (val, i) {
       return (
         <tr key={i}>
-          <td>{val["day"]}</td>
+          <td className="day-column">{val["day"]}</td>
           <td>{val["firstTimestamp"]}</td>
           <td>{val["secondTimestamp"]}</td>
           <td>{val["thirdTimestamp"]}</td>
@@ -48,7 +47,7 @@ function Schedule() {
 
   return (
     <div>
-      <h1> {className}'s schedule </h1>
+      <h1 className="schedule"> {className}'s schedule </h1>
       <Table id="myTable" striped="columns">
         <thead>
           <tr>

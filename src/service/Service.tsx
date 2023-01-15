@@ -4,6 +4,7 @@ import { StudentGroup } from "../data/StudentGroups";
 import { Subject } from "../data/Subject";
 import { Teacher } from "../data/Teacher";
 import http from "../http-common";
+import { Day } from "../schedule/ScheduleForm";
 
 const getCourses = () => {
   return http.get<Array<Course>>("/courses");
@@ -26,7 +27,7 @@ const getTimestamps = () => {
 };
 
 const getDays = () => {
-  return http.get<Array<String>>("/days");
+  return http.get<Array<Day>>("/days");
 };
 
 const getAdditionalCourses = (studentGroup: string) => {

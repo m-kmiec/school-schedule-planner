@@ -1,4 +1,7 @@
-.kebab-case {
-    margin-left: 100px;
+.schedule {
     text-align: center;
+}
+
+.day-column {
+    font-weight: bold;
 }

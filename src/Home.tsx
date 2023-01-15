@@ -1,15 +1,14 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 import { Link } from "react-router-dom";
 import { StudentGroup } from "./data/StudentGroups";
+import Service from "./service/Service";
 
 function Home() {
   const [studentGroups, setStudentGroups] = useState<StudentGroup[]>([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3004/studentGroups")
+    Service.getStudentGroups()
       .then((res) => {
         setStudentGroups(res.data);
       })

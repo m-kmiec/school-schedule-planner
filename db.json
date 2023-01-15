@@ -352,28 +352,6 @@
       "id": 15
     },
     {
-      "className": "2A",
-      "day": "Thursday",
-      "firstTimestamp": "",
-      "secondTimestamp": "",
-      "thirdTimestamp": "",
-      "fourthTimestamp": "",
-      "fifthTimestamp": "",
-      "sixthTimestamp": "",
-      "id": 16
-    },
-    {
-      "className": "2A",
-      "day": "Friday",
-      "firstTimestamp": "Biology",
-      "secondTimestamp": "",
-      "thirdTimestamp": "",
-      "fourthTimestamp": "",
-      "fifthTimestamp": "",
-      "sixthTimestamp": "",
-      "id": 17
-    },
-    {
       "className": "3F",
       "day": "Thursday",
       "firstTimestamp": "Advanced Chemistry",
@@ -383,6 +361,37 @@
       "fifthTimestamp": "",
       "sixthTimestamp": "",
       "id": 18
+    },
+    {
+      "className": "2A",
+      "day": "Thursday",
+      "firstTimestamp": "Mathematics",
+      "secondTimestamp": "Polish",
+      "thirdTimestamp": "Advanced History",
+      "fourthTimestamp": "Advanced History",
+      "fifthTimestamp": "",
+      "sixthTimestamp": "",
+      "id": 19
+    }
+  ],
+  "days": [
+    {
+      "label": ""
+    },
+    {
+      "label": "Monday"
+    },
+    {
+      "label": "Tuesday"
+    },
+    {
+      "label": "Wednesday"
+    },
+    {
+      "label": "Thursday"
+    },
+    {
+      "label": "Friday"
     }
   ]
 }

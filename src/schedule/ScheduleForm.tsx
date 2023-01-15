@@ -9,6 +9,10 @@ export type Props = {
   className: string;
 };
 
+export type Day = {
+  label: string;
+};
+
 function ScheduleForm(props: Props) {
   const [first, setFirst] = useState("");
   const [second, setSecond] = useState("");
@@ -18,6 +22,17 @@ function ScheduleForm(props: Props) {
   const [sixth, setSixth] = useState("");
   const [selectedDay, setDay] = useState("");
   const [courses, setCourses] = useState<Course[]>([]);
+  const [days, setDays] = useState<Day[]>([]);
+
+  useEffect(() => {
+    Service.getDays()
+      .then((res) => {
+        setDays(res.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  });
 
   useEffect(() => {
     getAllCourses();
@@ -31,6 +46,13 @@ function ScheduleForm(props: Props) {
       ]);
 
     setCourses([
+      {
+        subject: { name: "", abbre: "", isMandatory: true },
+        teacher: { name: "", surrname: "" },
+        type: "",
+        duration: 45,
+        hoursReq: 4,
+      },
       ...fetchedCourses.filter(
         (c: { subject: { isMandatory: boolean } }) =>
           c.subject.isMandatory === true
@@ -88,20 +110,22 @@ function ScheduleForm(props: Props) {
 
   return (
     <div>
-      <div className="kebab-case">
+      <div className="schedule">
         <h1> Create schedule for {props.className}: </h1>
       </div>
       <Form className="mt-3 mb-3" onSubmit={handleSubmit}>
         <Form.Group>
-          <Form.Label> Day </Form.Label>
-          <Form.Control
-            type="text"
+          <Form.Label> Day you want to add: </Form.Label>
+          <Form.Select
             value={selectedDay}
             onChange={(e) => setDay(e.target.value)}
-          />
-          <Form.Text>
-            Accepted days: Monday, Tuesday, Wednesday, Thursday and Friday.
-          </Form.Text>
+          >
+            {days.map((day) => (
+              <option key={day.label} value={day.label}>
+                {day.label}
+              </option>
+            ))}
+          </Form.Select>
         </Form.Group>
         {renderFormGroup("8:00-8:45", first, setFirst)}
         {renderFormGroup("8:55-9:40", second, setSecond)}
