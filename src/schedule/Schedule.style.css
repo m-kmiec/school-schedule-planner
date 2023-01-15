@@ -1,0 +1,19 @@
+.day-column {
+    font-weight: bold;
+}
+
+.buttons {
+    position: absolute;
+    right: 5px;
+}
+
+.create-button {
+    z-index: 1000;
+    float: left;
+    margin-right: 10px;
+}
+
+.delete-button {
+    float: right;
+    margin-right: 20px;
+}

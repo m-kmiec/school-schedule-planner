@@ -32,11 +32,11 @@ function ScheduleForm(props: Props) {
       .catch(function (error) {
         console.log(error);
       });
-  });
+  }, []);
 
   useEffect(() => {
     getAllCourses();
-  });
+  }, []);
 
   const getAllCourses = async () => {
     const [{ data: fetchedCourses }, { data: fetchedAdditionalCourses }] =
@@ -109,14 +109,15 @@ function ScheduleForm(props: Props) {
   };
 
   return (
-    <div>
+    <div className="form">
       <div className="schedule">
         <h1> Create schedule for {props.className}: </h1>
       </div>
       <Form className="mt-3 mb-3" onSubmit={handleSubmit}>
-        <Form.Group>
+        <Form.Group className="day-select">
           <Form.Label> Day you want to add: </Form.Label>
           <Form.Select
+            className="form-select"
             value={selectedDay}
             onChange={(e) => setDay(e.target.value)}
           >
@@ -127,15 +128,18 @@ function ScheduleForm(props: Props) {
             ))}
           </Form.Select>
         </Form.Group>
+
         {renderFormGroup("8:00-8:45", first, setFirst)}
         {renderFormGroup("8:55-9:40", second, setSecond)}
         {renderFormGroup("9:50-10:35", third, setThird)}
         {renderFormGroup("10:55-11:40", fourth, setFourth)}
         {renderFormGroup("11:50-12:35", fifth, setFifth)}
         {renderFormGroup("12:45-13:30", sixth, setSixth)}
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
+        <div className="submit-button">
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </div>
       </Form>
     </div>
   );

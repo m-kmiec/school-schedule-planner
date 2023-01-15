@@ -21,8 +21,8 @@ function DeleteSchedule(props: DeleteScheduleProps) {
   };
 
   return (
-    <div>
-      <Form onSubmit={deleteScheduleForDay}>
+    <div className="form">
+      <Form className="mt-3 mb-3" onSubmit={deleteScheduleForDay}>
         <Form.Group>
           <Form.Label> Choose day to delete </Form.Label>
           <Form.Select value={day} onChange={(e) => setDay(e.target.value)}>
@@ -33,7 +33,11 @@ function DeleteSchedule(props: DeleteScheduleProps) {
             ))}
           </Form.Select>
         </Form.Group>
-        <Button type="submit">Submit</Button>
+        <div className="submit-button-delete">
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </div>
       </Form>
     </div>
   );

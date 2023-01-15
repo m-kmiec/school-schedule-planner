@@ -2,6 +2,28 @@
     text-align: center;
 }
 
-.day-column {
-    font-weight: bold;
+.submit-button {
+    float: center;
+}
+
+.submit-button-delete {
+    margin-top: 10px;
+}
+
+.form {
+    position: relative;
+    margin-top: 80px;
+}
+
+select.form-select {
+    width: 15%;
+    margin: 0 auto;
+}
+
+.mb-3 div {
+    text-align: center;
+}
+
+.day-select {
+    margin-bottom: 16px;
 }

@@ -372,6 +372,17 @@
       "fifthTimestamp": "",
       "sixthTimestamp": "",
       "id": 19
+    },
+    {
+      "className": "2A",
+      "day": "Friday",
+      "firstTimestamp": "Mathematics",
+      "secondTimestamp": "Mathematics",
+      "thirdTimestamp": "",
+      "fourthTimestamp": "Advanced History",
+      "fifthTimestamp": "Polish",
+      "sixthTimestamp": "",
+      "id": 20
     }
   ],
   "days": [

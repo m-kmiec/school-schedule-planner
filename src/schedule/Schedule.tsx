@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Service from "../service/Service";
 import DeleteSchedule from "./DeleteSchedule";
 import ScheduleForm from "./ScheduleForm";
+import "./Schedule.style.css";
 
 function Schedule() {
   const { className } = useParams();
@@ -62,11 +63,10 @@ function Schedule() {
         </thead>
         <tbody>{renderRows()}</tbody>
       </Table>
-      <div>
-        <Button onClick={createClick}> Create Schedule </Button>
-        <Button onClick={deleteClick} variant="danger">
-          {" "}
-          Delete Schedule{" "}
+      <div className="buttons">
+        <Button className="create-button "onClick={createClick}> Create Schedule </Button>
+        <Button className="delete-button" onClick={deleteClick} variant="danger">
+          Delete Schedule
         </Button>
       </div>
       <div>{submitButtonClick && <ScheduleForm className={className!} />}</div>
