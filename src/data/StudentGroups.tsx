@@ -1,5 +1,7 @@
+import { Course } from "./Course";
+
 export type StudentGroup = {
     name: string,
-    additionalCourses : Object[],
-    id: number
+    additionalCourses : Course[],
+    // id: number   
 }

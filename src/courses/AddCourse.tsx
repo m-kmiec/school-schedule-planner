@@ -8,6 +8,7 @@ import { Teacher } from "../data/Teacher";
 import { Subject } from "../data/Subject";
 import { useForm } from "react-hook-form";
 import Service from "../service/Service";
+import PropTypes from 'prop-types';
 
 
 type Props = {
@@ -125,4 +126,10 @@ const AddCourse = (props: Props) => {
         </div>
   );
 };
+
+AddCourse.propTypes = {
+    onBackButtonClick: PropTypes.func,
+    onSubmitClick: PropTypes.func
+}
+
 export default AddCourse;

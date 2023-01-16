@@ -7,6 +7,7 @@ import { Teacher } from "../data/Teacher";
 import Service from "../service/Service";
 import * as Yup from 'yup';
 import "./EditCourse.style.css";
+import PropTypes from 'prop-types';
 
 
 type Props = {
@@ -121,5 +122,10 @@ type Props = {
         </div>
     );
  }
+
+ EditCourse.propTypes = {
+    onBackButtonClick: PropTypes.func,
+    onSubmitClick: PropTypes.func
+}
 
  export default EditCourse;

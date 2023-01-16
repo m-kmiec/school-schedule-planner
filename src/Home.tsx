@@ -28,7 +28,7 @@ function Home() {
         {studentGroups
           ? studentGroups.map((studentGroup) => {
               return (
-                <Link to={`schedule/${studentGroup.name}`} key={studentGroup.id}>
+                <Link to={`schedule/${studentGroup.name}`} key={studentGroup.name}>
                   <ListGroup.Item>
                     {studentGroup.name}
                   </ListGroup.Item>
