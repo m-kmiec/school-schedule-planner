@@ -62,7 +62,7 @@ const getScheduleForGroup = (studentGroup: any) => {
   return http.get<any>("/scheduleForDay?className=" + studentGroup);
 };
 
-const deleteScheduleForDay = (day: any) => {
+const deleteScheduleForDay = (day: string) => {
   return http.delete<any>("/scheduleForDay/" + day);
 };
 

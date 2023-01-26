@@ -4,7 +4,7 @@ import { Course } from "../data/Course";
 import { ScheduleForDay } from "../data/ScheduleForDay";
 import Service from "../service/Service";
 import "./ScheduleForm.style.css";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 export type Day = {
   label: string;
@@ -146,7 +146,7 @@ function ScheduleForm(props: Props) {
 }
 
 ScheduleForm.propTypes = {
-  className : PropTypes.string,
-}
+  className: PropTypes.string,
+};
 
 export default ScheduleForm;

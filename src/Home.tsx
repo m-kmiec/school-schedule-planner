@@ -31,7 +31,7 @@ function Home() {
                   <Link
                     className="link"
                     to={`schedule/${studentGroup.name}`}
-                    key={studentGroup.id}
+                    key={studentGroup.name}
                   >
                     <ListGroup.Item action variant="light">
                       {studentGroup.name}
