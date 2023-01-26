@@ -1,0 +1,13 @@
+.form-container {
+    text-align:  center;
+}
+
+.addGroupForm {
+    max-width: 350px;
+    margin: auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}

@@ -22,4 +22,5 @@ export const tmpList: Course[] = [
 export enum PageEnum {
   list,
   add,
+    edit
 }

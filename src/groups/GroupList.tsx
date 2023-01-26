@@ -1,51 +1,52 @@
 import { Row } from "react-bootstrap";
-import { Course } from "../data/Course";
-import "./CourseList.style.css";
+import { StudentGroup } from "../data/StudentGroups";
 import PropTypes from 'prop-types';
 
+
 type Props = {
-    list: Course[],
-    editCourse: (id:number) => void,
-    deleteCourse: (id:number) => void
+    list: StudentGroup[],
+    editGroup: (id:number) => void,
+    deleteGroup: (id:number) => void
 }
 
 
-const CourseList = (props: Props) => {
+const GroupList = (props: Props) => {
 
-    const { list, editCourse, deleteCourse } = props;
+
+
+    const { list, editGroup, deleteGroup } = props;
 
     const handleEditClick = (e: React.MouseEvent<HTMLInputElement>, id: number) => {
         e.preventDefault();
         // console.log("Edit button works, row " + id);
-        editCourse(id);
+        editGroup(id);
     }
     
     const handleDeleteClick = (e: React.MouseEvent<HTMLInputElement>, id: number) => {
         e.preventDefault();
         // console.log("Delete button works, row " + id);
-        deleteCourse(id);
+        deleteGroup(id);
     }
     
     let id: string = "0";
-    return (<div>This is courses list page
+    return (<div>This is group list page
         <table id="tableID">
             <tbody>
             <tr>
-                <th>Subject</th>
-                <th>Teacher</th>
-                <th>Type</th>
-                <th>Duration</th>
-                <th>Hours required</th>
-                <th>Action</th>
+                <th>Name</th>
+                <th>Additional courses</th>
             </tr>
-            {list.map((course,id) => {
+            {list.map((group,id) => {
                 return (
                     <tr key={id}>
-                        <td>{course.subject.name}</td>
-                        <td>{course.teacher.surrname}</td>
-                        <td>{course.type}</td>
-                        <td>{course.duration}</td>
-                        <td>{course.hoursReq}</td>
+                        <td>{group.name}</td>
+                        <td>
+                            {group.additionalCourses.map((i) => (
+                                <div key={i.subject.name}>
+                                    {i.subject.name}
+                                </div>
+                            ))}
+                        </td>
                         <td>
                             <div>
                             <input type="button" value="Edit"  onClick={(e) => handleEditClick(e,id+1) }/>
@@ -59,12 +60,12 @@ const CourseList = (props: Props) => {
         </table>
     </div>
     )
+    
 }
 
-CourseList.propTypes = {
-    list: PropTypes.array,
-    onBackButtonClick: PropTypes.func,
-    onSubmitClick: PropTypes.func
+GroupList.propTypes = {
+ list: PropTypes.array,
+ editGroup: PropTypes.func,
+ deleteGroup: PropTypes.func
 }
-
-export default CourseList;
+export default GroupList;

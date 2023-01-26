@@ -216,36 +216,20 @@
       "name": "2B",
       "additionalCourses": [
         {
+          "hoursReq": 6,
+          "duration": 4,
+          "type": "Science",
           "subject": {
-            "name": "Advanced History",
-            "abbre": "aHIS",
+            "name": "Advanced Physics",
+            "abbre": "aPHYS",
             "isMandatory": false
           },
           "teacher": {
-            "name": "Tahlia",
-            "surrname": "Benson",
+            "name": "Licoln",
+            "surrname": "Dean",
             "coursesTaught": []
           },
-          "type": "humanities",
-          "duration": "45 min",
-          "hoursReq": "3",
-          "id": 7
-        },
-        {
-          "subject": {
-            "name": "Advanced Polish",
-            "abbre": "aPOL",
-            "isMandatory": false
-          },
-          "teacher": {
-            "name": "Floyd",
-            "surrname": "Yoder",
-            "coursesTaught": []
-          },
-          "type": "humanities",
-          "duration": "45 min",
-          "hoursReq": "2",
-          "id": 10
+          "id": 3
         }
       ],
       "id": 4
@@ -286,15 +270,27 @@
       "id": 6
     },
     {
-      "className": "2A",
-      "day": "Wednesday",
-      "firstTimestamp": "Mathematics",
-      "secondTimestamp": "Biology",
-      "thirdTimestamp": "",
-      "fourthTimestamp": "",
-      "fifthTimestamp": "",
-      "sixthTimestamp": "",
-      "id": 7
+      "hoursReq": 5,
+      "duration": 8,
+      "type": "Science",
+      "subject": {
+        "name": "Biology",
+        "abbre": "BIO",
+        "isMandatory": true
+      },
+      "teacher": {
+        "name": "Aleena",
+        "surrname": "Whitaker",
+        "coursesTaught": []
+      },
+      "id": 4
+    }
+  ],
+  "subjects": [
+    {
+      "name": "Mathematics",
+      "abbre": "MATH",
+      "isMandatory": true
     },
     {
       "className": "3F",

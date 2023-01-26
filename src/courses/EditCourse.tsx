@@ -1,21 +1,22 @@
-import React, { FormEvent, useEffect, useState } from "react";
-import { Course } from "../data/Course";
-import "./AddCourse.style.css";
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as Yup from 'yup';
-import { Teacher } from "../data/Teacher";
-import { Subject } from "../data/Subject";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { Course } from "../data/Course";
+import { Subject } from "../data/Subject";
+import { Teacher } from "../data/Teacher";
 import Service from "../service/Service";
+import * as Yup from 'yup';
+import "./EditCourse.style.css";
 import PropTypes from 'prop-types';
 
 
 type Props = {
-  onBackButtonClick: () => void;
-  onSubmitClick: (data: Course) => void;
-};
+    onBackButtonClick: () => void;
+    onSubmitClick: (data: Course) => void;
+  };
+ 
+ const EditCourse = (props: Props) => {
 
-const AddCourse = (props: Props) => {
     const { onBackButtonClick, onSubmitClick } = props;
 
     const [subjects, setSubjects] = useState([] as Subject[]);
@@ -62,7 +63,6 @@ const AddCourse = (props: Props) => {
     });
 
     const onSubmit = (data: Course) => {
-        Service.addCourse(data);
         onSubmitClick(data);
         onBackButtonClick();
     }
@@ -76,11 +76,9 @@ const AddCourse = (props: Props) => {
     }
 
     return (
-        <div className="form-container">
-            <div>
-                <h1>Add new course!</h1>
-            </div>
-            <form onSubmit={handleSubmit(onSubmit)} className = "addCourseForm">
+        <div>
+            <h1>Edit course!</h1>
+            <form onSubmit={handleSubmit(onSubmit)} className = "editCourseForm">
                 <div className = "form-group">
                     <label>Subject: </label>
                     <select  onChange={handleChangeOfSubject} name='subject' >
@@ -118,17 +116,16 @@ const AddCourse = (props: Props) => {
                 </div>
                 <div className = "form-group">
                     <input type="button" value="Back" onClick={onBackButtonClick} />
-                    <input type="submit" value="Add"/>
+                    <input type="submit" value="Edit"/>
                 </div>
             </form>
-
         </div>
-  );
-};
+    );
+ }
 
-AddCourse.propTypes = {
+ EditCourse.propTypes = {
     onBackButtonClick: PropTypes.func,
     onSubmitClick: PropTypes.func
 }
 
-export default AddCourse;
+ export default EditCourse;

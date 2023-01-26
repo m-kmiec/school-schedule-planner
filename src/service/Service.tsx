@@ -39,8 +39,8 @@ const addCourse = (data: Course) => {
 };
 
 const addGroup = (data: StudentGroup) => {
-  return http.post<any>("/studentGroups, data");
-};
+    return http.post<any>("/studentGroups",data);
+}
 
 const editCourse = (data: Course, id: number) => {
   return http.put<any>("/courses/" + id, data);
