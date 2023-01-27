@@ -39,10 +39,15 @@ const AddCourse = (props: Props) => {
     },[])
 
     const validationSchema = Yup.object().shape({
+        subject: Yup.object()
+        .required("Subject is required"),
+        teacher: Yup.object()
+        .required("Teacher is required"),
         type: Yup.string()
         .required("Duration is required!")
         .max(10, "Type must not exceed 10 characters")
-        .matches(/^[a-zA-Z]+$/),
+        .matches(/^[a-zA-Z]+$/)
+        .min(3,"Type must be at least 3 characters long"),
         duration: Yup.number()
         .required("Duration is required")
         .max(10,"Duration must not exceed 10 hours"),
