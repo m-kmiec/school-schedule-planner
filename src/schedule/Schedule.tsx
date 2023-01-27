@@ -6,6 +6,7 @@ import DeleteSchedule from "./DeleteSchedule";
 import ScheduleForm from "./ScheduleForm";
 import "./Schedule.style.css";
 import { ScheduleForDay } from "../data/ScheduleForDay";
+import { RenderRows } from "./RenderRows";
 
 function Schedule() {
   const { className } = useParams();
@@ -31,22 +32,6 @@ function Schedule() {
     setDeleteButtonClick(deleteButtonClick ? false : true);
   };
 
-  const renderRows = () => {
-    return scheduleForDay.map(function (val, i) {
-      return (
-        <tr key={i}>
-          <td className="day-column">{val["day"]}</td>
-          <td>{val["firstTimestamp"]}</td>
-          <td>{val["secondTimestamp"]}</td>
-          <td>{val["thirdTimestamp"]}</td>
-          <td>{val["fourthTimestamp"]}</td>
-          <td>{val["fifthTimestamp"]}</td>
-          <td>{val["sixthTimestamp"]}</td>
-        </tr>
-      );
-    });
-  };
-
   return (
     <div>
       <h1 className="schedule"> {className}'s schedule </h1>
@@ -62,7 +47,7 @@ function Schedule() {
             <th>12:45-13:30</th>
           </tr>
         </thead>
-        <tbody>{renderRows()}</tbody>
+        <tbody>{RenderRows(scheduleForDay)}</tbody>
       </Table>
       <div className="buttons">
         <Button className="create-button "onClick={createClick}> Create Schedule </Button>

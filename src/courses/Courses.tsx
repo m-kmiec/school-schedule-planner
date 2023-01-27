@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
 import { useEffect, useState } from "react";
-import { Course, PageEnum, tmpList } from '../data/Course';
+import { Course, PageEnum } from '../data/Course';
 import CourseList from './CourseList';
 import AddCourse from './AddCourse';
 import Service from '../service/Service';

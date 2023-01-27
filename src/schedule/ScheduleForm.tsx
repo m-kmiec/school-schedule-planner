@@ -5,6 +5,7 @@ import { ScheduleForDay } from "../data/ScheduleForDay";
 import Service from "../service/Service";
 import "./ScheduleForm.style.css";
 import PropTypes from "prop-types";
+import { RenderOptions } from "./RenderOptions";
 
 export type Day = {
   label: string;
@@ -83,19 +84,9 @@ function ScheduleForm(props: Props) {
       });
   };
 
-  const renderOptions = () => {
-    return courses.map((course) => (
-      <option key={course.subject.name} value={course.subject.name}>
-        {course.subject.name}
-      </option>
-    ));
-  };
-
-  const renderFormGroup = (
-    timestamp: string,
+  function renderFormGroup(timestamp: string,
     stateValue: string,
-    stateFunction: React.Dispatch<React.SetStateAction<string>>
-  ) => {
+    stateFunction: React.Dispatch<React.SetStateAction<string>>) {
     return (
       <Form.Group className="mb-3">
         <Form.Label> {timestamp} </Form.Label>
@@ -103,11 +94,11 @@ function ScheduleForm(props: Props) {
           value={stateValue}
           onChange={(e) => stateFunction(e.target.value)}
         >
-          {renderOptions()}
+          {RenderOptions(courses)}
         </Form.Select>
       </Form.Group>
     );
-  };
+  }
 
   return (
     <div className="form">

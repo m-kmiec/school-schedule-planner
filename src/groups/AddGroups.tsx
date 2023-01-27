@@ -40,7 +40,7 @@ const AddGroups = (props: Props) => {
 
     const validationSchema = Yup.object().shape({
         name: Yup.string()
-        .required("Duration is required!")
+        .required("Student group's name is required!")
         .max(2, "Type must not exceed 2 characters")
     });
 
